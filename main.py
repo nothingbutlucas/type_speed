@@ -1,3 +1,5 @@
+#!/bin/python3
+
 import curses.textpad
 import random
 from time import sleep, time, gmtime, strftime
