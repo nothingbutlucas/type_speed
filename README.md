@@ -27,11 +27,18 @@ Then execute:
 Si no estas en windows, directamente ejecuta el main.py con python:
 
     python3 main.py
+    
+ó directamente:
 
+    ./main.py
 
 If you are not on windows, directly run the main.py with python:
 
     python3 main.py
+
+or:
+
+    ./main.py
 
 ## ERROR 🔴
 
