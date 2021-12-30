@@ -15,7 +15,7 @@ def bye_bye(stdscreen, lang):
         bye_bye_text = texts_es.bye_bye_text
 
     stdscreen.clear()
-    stdscreen.addstr(MIDDLE_Y - 4, MIDDLE_X - len(bye_bye_text) // 2, bye_bye_text)
+    stdscreen.addstr(MIDDLE_Y, MIDDLE_X - len(bye_bye_text) // 2, bye_bye_text)
     stdscreen.refresh()
     stdscreen.getch()
     exit()
@@ -249,7 +249,9 @@ def ending(stdscreen, lang, wpm_speed):
     win = curses.newwin(1, 10, MAX_Y - 4, MIDDLE_X + len(alias) // 2 + 2)
     tb = curses.textpad.Textbox(win)
     tb.edit()
-    return store_users(stdscreen, tb.gather().strip().replace(" ", "_"), lang, wpm_speed)
+    return store_users(
+        stdscreen, tb.gather().strip().replace(" ", "_"), lang, wpm_speed
+    )
 
 
 def load_texts():
@@ -351,9 +353,17 @@ def main(stdscreen):
 
     if curses.LINES < LINES or curses.COLS < cols:
         print(
-            f"\n[ERROR] -> Verify that you have a terminal with {LINES} lines and {cols}."
-            f"You can modify this in the constants.py file. But the terminal can crash because of the long of the "
-            "length of the texts especified on the sentences.txt file.This window its gonna close in 10 seconds"
+            f"\n[ERROR ENGLISH] -> Verify that you have a terminal with {LINES} lines and {cols} columns."
+            f"I think that actually you have a terminal with {curses.LINES} lines and {curses.COLS} columns."
+            f"You can solve this error this by resizing the terminal."
+            f"The terminal lines are specified by the long of the length of the texts specified on the sentences.txt "
+            f"file.This window its gonna close in 10 seconds."
+            f"[ERROR ESPAÑOL] -> Verfica que tengas una terminal con {LINES} lineas y {cols} columnas."
+            f"Creo que actualmente tenes una terminal con {curses.LINES} lineas y {curses.COLS} columnas."
+            f"Podes arreglar este error agrandando la terminal."
+            f"Las lineas necesarias son especificadas por la longitud de los textos especificados en el archivo "
+            f"sentences.txt. Esta ventana se cerrara en 10 segundos"
+
         )
         sleep(10)
         exit()
