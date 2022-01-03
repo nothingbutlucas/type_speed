@@ -184,14 +184,14 @@ def store_users(stdscreen, user, lang, wpm_speed):
         end_0 = texts_en.end_0
         end_1 = texts_en.end_1
         end_2 = texts_en.end_2
-        wpm = texts_en.wpm
+        wpm_text = texts_en.wpm
 
     else:
         top_users = texts_es.top_users
         end_0 = texts_es.end_0
         end_1 = texts_es.end_1
         end_2 = texts_es.end_2
-        wpm = texts_es.wpm
+        wpm_text = texts_es.wpm
 
     stdscreen.clear()
 
@@ -220,7 +220,7 @@ def store_users(stdscreen, user, lang, wpm_speed):
         user = x["user"]
         if len(user) < 10:
             user += " " * (10 - len(user))
-        user_print = f'{y}: {user} -> {x["wpm"]} {wpm} - {x["date"]}'
+        user_print = f'{y}: {user} -> {x["wpm"]} {wpm_text} - {x["date"]}'
         stdscreen.addstr(MIDDLE_Y - 13 + y, MIDDLE_X - len(user_print) // 2, user_print)
         if y == 10:
             break
